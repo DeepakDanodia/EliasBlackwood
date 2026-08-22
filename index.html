@@ -1,14 +1,25 @@
+google.com, pub-3042897532119737, DIRECT, f08c47fec0942fa0```
+
+---
+
+## 💾 100% Working HTML — Copy & Save as `index.html`
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Elias Vane — Original character artist. Commissioned character art for tabletop games, novels, and personal worlds.">
+  <meta name="google-adsense-account" content="ca-pub-3042897532119737">
   <title>Elias Vane — Character Artist</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Google AdSense — EXACT code as provided -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3042897532119737" crossorigin="anonymous"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -23,7 +34,6 @@
       --cream-dim: rgba(229, 224, 216, 0.5);
       --fog: #8A8580;
       --gold: #C9A96E;
-      --gold-dim: rgba(201, 169, 110, 0.15);
       --ease-luxury: cubic-bezier(0.22, 0.61, 0.36, 1);
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
@@ -32,10 +42,7 @@
 
     ::selection { background: rgba(229,224,216,0.15); color: var(--cream); }
 
-    /* Lenis requirement — MUST have for smooth scroll to work */
-    html.lenis, html.lenis body {
-      height: auto;
-    }
+    html.lenis, html.lenis body { height: auto; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -46,7 +53,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Film grain — ultra subtle */
     body::before {
       content: '';
       position: fixed;
@@ -66,7 +72,7 @@
       outline-offset: 4px;
     }
 
-    /* Navigation — solid with blur, NO mix-blend-mode (was causing render bugs) */
+    /* Navigation */
     .nav {
       position: fixed;
       top: 0;
@@ -76,7 +82,7 @@
       padding: 2rem 3rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;6
+      align-items: center;
       transition: all 0.4s var(--ease-luxury);
     }
 
@@ -109,3 +115,805 @@
       color: var(--cream);
       text-decoration: none;
       opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { opacity: 1; }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: sepia(0.12) saturate(0.8) brightness(0.88) contrast(1.05);
+      transform: scale(1.15);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--void) 0%, transparent 50%, rgba(10,10,12,0.5) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3rem 5rem;
+    }
+
+    .hero-label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--fog);
+      max-width: 400px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .scroll-line {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--cream-dim), transparent);
+      animation: scroll-pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.2; transform: translateX(-50%) scaleY(0.6); }
+      50% { opacity: 0.7; transform: translateX(-50%) scaleY(1); }
+    }
+
+    /* Sections */
+    section { padding: 10rem 0; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* Works */
+    .works { padding-top: 6rem; }
+
+    .works-header { margin-bottom: 5rem; }
+
+    .works-header .label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fog);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .works-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .works-header h2 em {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+
+    .work-piece {
+      position: relative;
+      margin-bottom: 3rem;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .work-piece .work-img-wrap {
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.6s var(--ease-luxury);
+    }
+
+    .work-piece img {
+      width: 100%;
+      height: 75vh;
+      min-height: 500px;
+      object-fit: cover;
+      object-position: center top;
+      filter: sepia(0.12) saturate(0.8) brightness(0.88) contrast(1.05);
+      transform: scale(1.1);
+      transition: filter 1.5s var(--ease-luxury), transform 8s var(--ease-luxury);
+      display: block;
+    }
+
+    .work-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 4rem 3rem;
+      background: linear-gradient(to top, rgba(10,10,12,0.95), rgba(10,10,12,0.3), transparent);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 0.8s var(--ease-luxury);
+    }
+
+    .work-piece:hover .work-info,
+    .work-piece:focus-within .work-info {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .work-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+
+    .work-info span {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fog);
+    }
+
+    /* AdSense — Dark Luxury Containers */
+    .ad-break {
+      padding: 4rem 3rem;
+      background: var(--surface);
+      border-top: 1px solid rgba(229,224,216,0.04);
+      border-bottom: 1px solid rgba(229,224,216,0.04);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+    }
+
+    .ad-break.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ad-break-label {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--fog);
+      opacity: 0.4;
+      margin-bottom: 1.5rem;
+    }
+
+    .ad-container {
+      max-width: 728px;
+      margin: 0 auto;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* About */
+    .about {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 12rem 3rem;
+    }
+
+    .about .label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fog);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .about-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--cream);
+    }
+
+    .about-text .line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .about-text .line-inner {
+      display: block;
+      transform: translateY(100%);
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      padding: 8rem 3rem 12rem;
+      border-top: 1px solid rgba(229,224,216,0.06);
+    }
+
+    .contact .label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fog);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact h2 em {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+
+    .contact p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--fog);
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .magnetic-btn {
+      display: inline-block;
+      padding: 1.25rem 3rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      border: 1px solid rgba(229,224,216,0.2);
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s, background 0.4s;
+    }
+
+    .magnetic-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,169,110,0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .magnetic-btn:hover {
+      border-color: var(--gold);
+      background: rgba(201,169,110,0.05);
+    }
+
+    .magnetic-btn:hover::before {
+      opacity: 1;
+    }
+
+    .magnetic-btn span {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      transition: transform 0.3s var(--ease-spring);
+    }
+
+    .contact-status {
+      margin-top: 2.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fog);
+    }
+
+    .contact-status::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #4A7C59;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      animation: status-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes status-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; box-shadow: 0 0 8px #4A7C59; }
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 3rem;
+      border-top: 1px solid rgba(229,224,216,0.04);
+    }
+
+    .footer p {
+      font-size: 0.7rem;
+      color: var(--fog);
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav { padding: 1.5rem; background: rgba(10,10,12,0.8); backdrop-filter: blur(10px); }
+      .nav.scrolled { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .nav-links a { font-size: 0.6rem; }
+      .hero-overlay { padding: 0 1.5rem 4rem; }
+      .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+      section { padding: 6rem 0; }
+      .container { padding: 0 1.5rem; }
+      .work-piece img { height: 50vh; min-height: 300px; }
+      .work-info {
+        padding: 2rem 1.5rem;
+        opacity: 1;
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(10,10,12,0.95), rgba(10,10,12,0.6));
+      }
+      .ad-break { padding: 3rem 1.5rem; }
+      .ad-container { min-height: 250px; }
+      .about { padding: 8rem 1.5rem; }
+      .contact { padding: 6rem 1.5rem 8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero img, .work-piece img {
+        transform: none !important;
+        transition: none !important;
+        filter: sepia(0.12) saturate(0.8) brightness(0.88) contrast(1.05) !important;
+      }
+      .scroll-line { animation: none; }
+      .contact-status::before { animation: none; }
+      .about-text .line-inner { transform: translateY(0) !important; }
+      .hero-label, .hero-desc { opacity: 1 !important; transform: none !important; }
+      .ad-break { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav-name">Elias Vane</a>
+    <ul class="nav-links">
+      <li><a href="#works">Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img src="https://kimi-web-img.kimi.ai/img/cdn.shopify.com/fc1881ac91f0b546cd8f6444d4cfd41aa4d44891.webp" 
+         alt="Portrait of a commissioned original character" 
+         loading="eager" 
+         id="heroImg">
+    <div class="hero-overlay">
+      <span class="hero-label">Character Artist & Illustrator</span>
+      <h1>Original Characters<br>for <em>Storytellers</em></h1>
+      <p class="hero-desc">Commissioned character art for tabletop games, novels, and personal worlds.</p>
+    </div>
+    <div class="scroll-line"></div>
+  </section>
+
+  <section class="works" id="works">
+    <div class="container">
+      <div class="works-header">
+        <span class="label">Selected Works</span>
+        <h2>Recent <em>Commissions</em></h2>
+      </div>
+    </div>
+
+    <figure class="work-piece" tabindex="0">
+      <div class="work-img-wrap" id="work1">
+        <img src="https://kimi-web-img.kimi.ai/img/cdnb.artstation.com/4a4806c6c11b1ca7998c0490099ecb85149c9e15.jpg" 
+             alt="The Alchemist — commissioned original character" 
+             loading="lazy">
+      </div>
+      <figcaption class="work-info">
+        <h3>The Alchemist</h3>
+        <span>Full Character Render — 2026</span>
+      </figcaption>
+    </figure>
+
+    <!-- AdSense Break 1: Gallery Interlude -->
+    <div class="ad-break" id="adBreak1">
+      <div class="ad-break-label">Partner</div>
+      <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3042897532119737"
+             data-ad-slot="AUTO_ADS_OR_REPLACE_SLOT_1"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <figure class="work-piece" tabindex="0">
+      <div class="work-img-wrap" id="work2">
+        <img src="https://kimi-web-img.kimi.ai/img/i.etsystatic.com/bb561d0cb92cf4714d623f4ee77347c3e5bb2623.jpg" 
+             alt="The Summoner — commissioned original character" 
+             loading="lazy">
+      </div>
+      <figcaption class="work-info">
+        <h3>The Summoner</h3>
+        <span>Character Portrait — 2026</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="about" id="about">
+    <span class="label">About</span>
+    <p class="about-text" id="aboutText">I create original characters for those who build worlds. Each piece begins with your story and ends with someone who feels like they have always existed.</p>
+  </section>
+
+  <!-- AdSense Break 2: Commission Bridge -->
+  <div class="ad-break" id="adBreak2">
+    <div class="ad-break-label">Partner</div>
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3042897532119737"
+           data-ad-slot="AUTO_ADS_OR_REPLACE_SLOT_2"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <section class="contact" id="contact">
+    <span class="label">Commission</span>
+    <h2>Begin a <em>Project</em></h2>
+    <p>Share your vision. I will listen, interpret, and render until the character stands fully formed.</p>
+    <a href="mailto:coresovereign.official@gmail.com" class="magnetic-btn" id="magneticBtn"><span>Get in Touch</span></a>
+    <div class="contact-status">Accepting new commissions</div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Elias Vane. All characters are original commissioned works.</p>
+  </footer>
+
+  <script>
+    // ============================================
+    // BULLETPROOF INITIALIZATION
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        initLenis();
+        initNavbar();
+        initHero();
+        initWorks();
+        initAbout();
+        initAds();
+        initMagnetic();
+        initSmoothScroll();
+      } catch (e) {
+        console.warn('Animation init error:', e);
+      }
+    });
+
+    // ============================================
+    // 1. LENIS SMOOTH SCROLL (Single rAF)
+    // ============================================
+    function initLenis() {
+      if (typeof Lenis === 'undefined' || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('Libraries not loaded — smooth scroll disabled');
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const lenis = new Lenis({
+        lerp: 0.1,
+        smoothWheel: true
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      
+      gsap.ticker.lagSmoothing(0);
+
+      window.siteLenis = lenis;
+    }
+
+    // ============================================
+    // 2. NAVBAR SCROLL
+    // ============================================
+    function initNavbar() {
+      const navbar = document.getElementById('navbar');
+      if (!navbar) return;
+
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.pageYOffset > 100);
+      });
+    }
+
+    // ============================================
+    // 3. HERO LOAD SEQUENCE
+    // ============================================
+    function initHero() {
+      const heroImg = document.getElementById('heroImg');
+      const heroLabel = document.querySelector('.hero-label');
+      const heroDesc = document.querySelector('.hero-desc');
+
+      if (typeof gsap !== 'undefined') {
+        if (heroImg) {
+          gsap.to(heroImg, {
+            scale: 1.05,
+            duration: 12,
+            ease: 'power2.out',
+            delay: 0.2
+          });
+        }
+
+        if (heroLabel) {
+          gsap.to(heroLabel, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 0.5
+          });
+        }
+
+        if (heroDesc) {
+          gsap.to(heroDesc, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 0.8
+          });
+        }
+      } else {
+        // Fallback: show immediately if GSAP fails
+        if (heroLabel) { heroLabel.style.opacity = '1'; heroLabel.style.transform = 'none'; }
+        if (heroDesc) { heroDesc.style.opacity = '1'; heroDesc.style.transform = 'none'; }
+      }
+    }
+
+    // ============================================
+    // 4. IMAGE CLIP-PATH + PARALLAX
+    // ============================================
+    function initWorks() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+      document.querySelectorAll('.work-piece').forEach((piece, i) => {
+        const img = piece.querySelector('img');
+        if (!img) return;
+
+        gsap.fromTo(img, 
+          { 
+            clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',
+            scale: 1.2
+          },
+          {
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            scale: 1.1,
+            duration: 1.8,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+              trigger: piece,
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            },
+            delay: i * 0.15
+          }
+        );
+
+        gsap.to(img, {
+          yPercent: -8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: piece,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+      });
+
+      // 3D Tilt (desktop only)
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
+      if (!isTouch) {
+        document.querySelectorAll('.work-img-wrap').forEach(wrap => {
+          wrap.addEventListener('mousemove', (e) => {
+            const rect = wrap.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            wrap.style.transform = `perspective(1000px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg) scale(1.02)`;
+          });
+
+          wrap.addEventListener('mouseleave', () => {
+            wrap.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+          });
+        });
+      }
+    }
+
+    // ============================================
+    // 5. ABOUT TEXT — LINE BY LINE
+    // ============================================
+    function initAbout() {
+      const aboutText = document.getElementById('aboutText');
+      if (!aboutText) return;
+
+      if (typeof SplitType !== 'undefined' && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        try {
+          const split = new SplitType(aboutText, { types: 'lines' });
+          
+          split.lines.forEach((line) => {
+            const inner = document.createElement('span');
+            inner.className = 'line-inner';
+            inner.textContent = line.textContent;
+            line.innerHTML = '';
+            line.className = 'line';
+            line.appendChild(inner);
+          });
+
+          gsap.to('.line-inner', {
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: aboutText,
+              start: 'top 75%',
+              toggleActions: 'play none none none'
+            }
+          });
+        } catch (e) {
+          console.warn('SplitType error:', e);
+        }
+      } else {
+        // Fallback: show text immediately
+        aboutText.style.opacity = '1';
+      }
+    }
+
+    // ============================================
+    // 6. ADSENSE — Initialize ad units
+    // ============================================
+    function initAds() {
+      // Fade in ad containers
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        document.querySelectorAll('.ad-break').forEach((ad, i) => {
+          gsap.to(ad, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: ad,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            delay: i * 0.1
+          });
+        });
+      } else {
+        document.querySelectorAll('.ad-break').forEach(ad => {
+          ad.style.opacity = '1';
+          ad.style.transform = 'none';
+        });
+      }
+
+      // Push AdSense ads
+      if (typeof adsbygoogle !== 'undefined') {
+        try {
+          document.querySelectorAll('.adsbygoogle').forEach(function(ad) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          });
+        } catch (e) {
+          console.warn('AdSense push error:', e);
+        }
+      } else {
+        console.warn('AdSense not loaded yet — will auto-push when ready');
+      }
+    }
+
+    // ============================================
+    // 7. MAGNETIC BUTTON
+    // ============================================
+    function initMagnetic() {
+      const magneticBtn = document.getElementById('magneticBtn');
+      if (!magneticBtn) return;
+
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
+      if (isTouch) return;
+
+      const btnSpan = magneticBtn.querySelector('span');
+      
+      magneticBtn.addEventListener('mousemove', (e) => {
+        const rect = magneticBtn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        magneticBtn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+        if (btnSpan) btnSpan.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+      });
+
+      magneticBtn.addEventListener('mouseleave', () => {
+        magneticBtn.style.transform = 'translate(0, 0)';
+        if (btnSpan) btnSpan.style.transform = 'translate(0, 0)';
+      });
+    }
+
+    // ============================================
+    // 8. SMOOTH SCROLL NAV LINKS
+    // ============================================
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (!target) return;
+
+          if (window.siteLenis) {
+            window.siteLenis.scrollTo(target, { offset: -50 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
