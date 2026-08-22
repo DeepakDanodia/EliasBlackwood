@@ -1,1 +1,0 @@
-# future-shop-2026
